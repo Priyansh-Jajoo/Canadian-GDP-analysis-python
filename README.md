@@ -68,7 +68,7 @@ The dataset (`Canada_Economic_Data_1961-2023.csv`) includes:
     Ensure the `Canada_Economic_Data_1961-2023.csv` file is in the same directory and execute the script from your terminal.
     ```bash
     # Replace with your Python script's name
-    Canada_GDP_Python.ipynb
+    Canada_GDP_Python.py
     ```
 
 ---
