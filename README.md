@@ -75,20 +75,22 @@ The dataset (`Canada_Economic_Data_1961-2023.csv`) includes:
 
 ## Summary of Results
 
-The final analysis produced clear and credible insights into the Canadian economy.
+The final analysis produced clear and credible insights into the Canadian economy after overcoming initial data integrity challenges.
 
 #### Forecasting Performance
-The ARIMA model was the best performer for forecasting future GDP, based on having the lowest Root Mean Squared Error (RMSE).
+The ARIMA model was the best performer for forecasting future GDP, demonstrating high accuracy and a significant improvement over the baseline.
 
-| Model                 | RMSE      | Improvement over Baseline (%) |
-| :-------------------- | :-------- | :---------------------------- |
-| Naive                 | 123371.72 | -                             |
-| Exponential Smoothing | 88314.52  | 28.42%                        |
-| **ARIMA** | **38551.22** | **68.75%** |
+| Model                 | RMSE      | Accuracy (%) | Improvement over Baseline (%) |
+| :-------------------- | :-------- | :----------- | :---------------------------- |
+| Naive                 | 123371.72 | 92.20%       | -                             |
+| Exponential Smoothing | 97997.44  | 93.40%       | 20.57%                        |
+| **ARIMA** | **28808.62** | **98.87%** | **76.65%** |
+
+*Note: Accuracy is calculated as 100 - MAPE (Mean Absolute Percentage Error).*
 
 #### Key Economic Drivers
-- **Primary Driver:** Real GDP (`Value`) was identified as the most significant driver of consumer spending (>99% importance).
-- **Model Fit:** The multiple regression model explained 99.8% of the variance in consumption.
+- **Primary Driver:** Real GDP (`Value`) was identified as the most significant driver of consumer spending, with over **99.4%** feature importance in the Random Forest model.
+- **Model Fit:** The multiple regression model explained **99.8%** of the variance in consumption (R² = 0.9981).
 - **Key Metrics:**
   - Marginal Propensity to Consume (MPC): **0.982**
   - Okun's Law Coefficient: **-0.387**
