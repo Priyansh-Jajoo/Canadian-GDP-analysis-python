@@ -55,9 +55,8 @@ The dataset (`Canada_Economic_Data_1961-2023.csv`) includes:
 
 1.  **Clone the repository:**
     ```bash
-    # Replace with your GitHub username and repo name
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    git clone https://github.com/Priyansh-Jajoo/Canadian-GDP-analysis-python.git
+    cd Canadian-GDP-analysis-python
     ```
 
 2.  **Install the required libraries:**
@@ -69,7 +68,7 @@ The dataset (`Canada_Economic_Data_1961-2023.csv`) includes:
     Ensure the `Canada_Economic_Data_1961-2023.csv` file is in the same directory and execute the script from your terminal.
     ```bash
     # Replace with your Python script's name
-    python your_script_name.py
+    Canada_GDP_Python.ipynb
     ```
 
 ---
