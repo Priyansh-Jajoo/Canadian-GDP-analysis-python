@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-This project provides a comprehensive, end-to-end analysis of the Canadian economy using over 60 years of quarterly data. The goal was to build a robust data pipeline in Python to clean, analyze, and model key macroeconomic indicators. The analysis uncovers the primary drivers of consumer spending, develops a high-performance time-series model to forecast future GDP, and calculates key economic metrics like the Marginal Propensity to Consume (MPC) and the Okun's Law coefficient.
+This repository contains a comprehensive, end-to-end data science pipeline for analyzing and forecasting key Canadian macroeconomic indicators using over 60 years of quarterly data. The primary goal is to demonstrate a rigorous workflow in Python for time-series analysis, feature engineering, and predictive modeling.
+
+The project involves cleaning and structuring a longitudinal dataset, performing exploratory data analysis, and systematically comparing multiple forecasting models (Naive, Exponential Smoothing, ARIMA) to identify the optimal approach. Additionally, it employs regression models to determine the statistical drivers of key economic variables.
 
 The project demonstrates a full data science workflow, from data sourcing and cleaning to advanced modeling and interpretation of results.
 
@@ -10,48 +12,34 @@ The project demonstrates a full data science workflow, from data sourcing and cl
 
 ---
 
-## Key Features
+## Key Technical Features
 
-- **Data Processing**: A robust pipeline that loads, validates, and cleans the dataset, including feature engineering for growth rate calculation.
-- **Exploratory Data Analysis (EDA)**: A 2x2 dashboard of visualizations is generated to provide insights into economic trends and relationships.
+- **End-to-End Pipeline: Implements a complete data science workflow from data ingestion and cleaning to model evaluation and results reporting using Python.
 - **Time-Series Forecasting**:
-  - Rigorously evaluates multiple models (Naive, Exponential Smoothing, ARIMA) on a train-test split of the data.
-  - The **ARIMA model proved most effective**, reducing forecast error (RMSE) by **68.75%** compared to the baseline.
-- **Machine Learning Analysis**:
-  - A multiple linear regression model explains **99.8% of the variance** in consumer spending (R²=0.9981).
-  - A Random Forest model identifies **Real GDP (`Value`)** as the primary driver of consumption, with over 99% feature importance.
-- **Economic Theory Application**: The analysis connects to established economic principles by calculating a realistic **Okun's Law Coefficient (-0.387)** and a **Marginal Propensity to Consume (0.982)**.
-- **Automated Reporting**: The script automatically saves all plots and exports a detailed, multi-sheet Excel report of the findings.
-
----
-
-## Data Source
-
-The project uses a clean dataset of quarterly data from 1961 to 2023, sourced from reliable public databases like the St. Louis Federal Reserve (FRED) and Statistics Canada.
-
-The dataset (`Canada_Economic_Data_1961-2023.csv`) includes:
-- **`date`**: Quarter-end date
-- **`Value`**: Real Gross Domestic Product (GDP)
-- **`consumption_expenditure`**: Real Personal Consumption Expenditures
-- **`unemployment`**: Quarterly Unemployment Rate
-- **`Inflation`**: Year-over-year inflation rate
-- **`interest_rate`**: Bank of Canada Policy Interest Rate
+  - Rigorously evaluates multiple time-series models using statsmodels and pmdarima.
+  - The final ARIMA model demonstrates superior performance, reducing forecast error (RMSE) by 76.65% compared to the baseline Naive model.
+- **Feature Importance Analysis:**:
+  - A multiple linear regression model (scikit-learn) explains 99.8% of the variance in consumer spending (R²=0.9981)..
+  - A Random Forest model identifies the primary driver of consumption with over 99% feature importance.
+- **Automated Reporting:**: The script automatically generates and saves all analytical plots and exports a detailed, multi-sheet Excel report of the findings.
+- **Alternative Implementation**: An alternative implementation of this analysis was also completed in R, showcasing methodological breadth. The repository for the R version can be found at: https://github.com/Priyansh-Jajoo/Canadian-GDP-analysis-R.
 
 ---
 
 ## Technologies & Libraries
 
-- Python 3.x
-- pandas
-- scikit-learn
-- statsmodels
-- pmdarima
-- matplotlib & seaborn
-- openpyxl
+- **Language: Python 3.x
+- **Core Libraries:
+pandas for data manipulation
+scikit-learn for regression modeling
+statsmodels & pmdarima for time-series analysis
+matplotlib & seaborn for data visualization
+openpyxl for report generation
+
 
 ---
 
-## How to Run
+## Setup and Usage
 
 1.  **Clone the repository:**
     ```bash
@@ -59,26 +47,26 @@ The dataset (`Canada_Economic_Data_1961-2023.csv`) includes:
     cd Canadian-GDP-analysis-python
     ```
 
-2.  **Install the required libraries:**
+2.  **Create and activate a virtual environment:**
     ```bash
-    pip install pandas numpy matplotlib seaborn statsmodels pmdarima scikit-learn openpyxl
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+
     ```
 
-3.  **Run the script:**
-    Ensure the `Canada_Economic_Data_1961-2023.csv` file is in the same directory and execute the script from your terminal.
-    ```bash
-    # Replace with your Python script's name
-    Canada_GDP_Python.py
-    ```
+3.  **Install dependencies:**
+    `pip install -r requirements.txt`
+
+4. **Run the analysis script:**
+     `python Canada_GDP_Python.py`
 
 ---
 
 ## Summary of Results
 
-The final analysis produced clear and credible insights into the Canadian economy after overcoming initial data integrity challenges.
+The ARIMA model was identified as the optimal forecasting approach based on the lowest Root Mean Squared Error (RMSE) and highest accuracy.
 
-#### Forecasting Performance
-The ARIMA model was the best performer for forecasting future GDP, demonstrating high accuracy and a significant improvement over the baseline.
 
 | Model                 | RMSE      | Accuracy (%) | Improvement over Baseline (%) |
 | :-------------------- | :-------- | :----------- | :---------------------------- |
@@ -88,9 +76,4 @@ The ARIMA model was the best performer for forecasting future GDP, demonstrating
 
 *Note: Accuracy is calculated as 100 - MAPE (Mean Absolute Percentage Error).*
 
-#### Key Economic Drivers
-- **Primary Driver:** Real GDP (`Value`) was identified as the most significant driver of consumer spending, with over **99.4%** feature importance in the Random Forest model.
-- **Model Fit:** The multiple regression model explained **99.8%** of the variance in consumption (R² = 0.9981).
-- **Key Metrics:**
-  - Marginal Propensity to Consume (MPC): **0.982**
-  - Okun's Law Coefficient: **-0.387**
+
